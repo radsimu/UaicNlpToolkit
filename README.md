@@ -11,4 +11,12 @@ The toolkit currently contains
 
 This is a work in progress. I intend to include UAIC's Romanian dependency parser in this toolkit soon.
 
-Licensed under Apache License 2.0
+This source code is licensed under Apache License 2.0
+
+# Included libraries
+jsyntaxpane                    Apache License 2.0
+TestNG                         Apache License 2.0
+OpenNLP                        Apache License 2.0
+Apache Lucene                  Apache License 2.0
+Apache Commons Lang            Apache License 2.0
+Mozilla Rhino                  Mozilla Public License 2.0
