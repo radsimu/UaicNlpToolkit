@@ -3,3 +3,5 @@ corola
 *.iws
 /.idea/workspace.xml
 /.idea/tasks.xml
+TestData/*
+!*/unzipmehere.zip
