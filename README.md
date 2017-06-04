@@ -32,10 +32,12 @@ The sources are configured as an Intellij project. The important folders are:
 - TestUserStories: this is an aditional module containing some high level tests.
 
 
+# License
 
 This source code is licensed under Apache License 2.0
 
-# Included libraries
+Third party libraries
+-
 Apache License 2.0
 - jsyntaxpane
 - TestNG
