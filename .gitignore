@@ -5,4 +5,5 @@ corola
 /.idea/tasks.xml
 **/radu.txt
 TestData/*
-!*/unzipmehere.zip
+ResourceData/*
+!*/unzip_me_here.zip
