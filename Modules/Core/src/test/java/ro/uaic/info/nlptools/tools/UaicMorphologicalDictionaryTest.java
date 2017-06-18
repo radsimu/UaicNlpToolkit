@@ -24,7 +24,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Dictionary;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;

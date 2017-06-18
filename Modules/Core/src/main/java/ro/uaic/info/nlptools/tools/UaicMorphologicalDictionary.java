@@ -16,14 +16,7 @@
 
 package ro.uaic.info.nlptools.tools;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -63,7 +56,7 @@ public class UaicMorphologicalDictionary {
     protected Set<String> abbreviations = new HashSet<String>(70);
     public TokenTrieNode compCuvsTrie = new TokenTrieNode();
 
-    public void load(InputStream is) throws Exception {
+    public void load(InputStream is) throws IOException {
         long start = System.currentTimeMillis();
         logger.log(Level.INFO, "POS dictionary loading...");
 
@@ -108,7 +101,7 @@ public class UaicMorphologicalDictionary {
                     String[] feats = toks[i].split("_");
 
                     if (feats.length < 2) {
-                        throw new Exception("Invalid format at line: " + l);
+                        throw new IOException("Invalid format at line: " + l);
                     }
                     String extra = null;
                     if (feats.length > 2) {
@@ -505,12 +498,12 @@ public class UaicMorphologicalDictionary {
         return rez;
     }
 
-    static String getCanonicalWord(String word) {
+    protected static String getCanonicalWord(String word) {
         String rez = getCanonicalWordKeepGrafie(word);
         return rez.replaceAll("â", "î"); //ca sa ignoram grafia
     }
 
-    private static String getCanonicalWordKeepGrafie(String word) {
+    protected static String getCanonicalWordKeepGrafie(String word) {
         String rez = getCleanedUpWord(word);
         rez = rez.replaceAll("[-–]", "-");
         rez = rez.replaceAll("[\\p{Z}\\s\\n\\r\n\r]+", "~");

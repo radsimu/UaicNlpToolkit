@@ -18,10 +18,10 @@ package ro.uaic.info.nlptools.ggs.editor;
 
 import ro.uaic.info.nlptools.corpus.SpanAnnotation;
 import ro.uaic.info.nlptools.corpus.XMLFormatConfig;
-import ro.uaic.info.nlptools.ggs.engine.core.GGSException;
 import ro.uaic.info.nlptools.corpus.InmemoryCorpus;
+import ro.uaic.info.nlptools.ggs.engine.core.GGSException;
 import ro.uaic.info.nlptools.ggs.engine.core.Match;
-import ro.uaic.info.nlptools.ggs.annotationsExplorer.AnnotationsExplorer;
+import ro.uaic.info.nlptools.annotationsExplorer.AnnotationsExplorer;
 import ro.uaic.info.nlptools.ggs.engine.core.CompiledGrammar;
 import org.w3c.dom.Document;
 

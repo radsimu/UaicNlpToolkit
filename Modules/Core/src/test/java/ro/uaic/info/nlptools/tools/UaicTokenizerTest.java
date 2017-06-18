@@ -17,7 +17,6 @@
 package ro.uaic.info.nlptools.tools;
 
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ro.uaic.info.nlptools.corpus.InmemoryCorpus;
 

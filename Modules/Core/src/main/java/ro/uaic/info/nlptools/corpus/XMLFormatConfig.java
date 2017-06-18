@@ -16,8 +16,6 @@
 
 package ro.uaic.info.nlptools.corpus;
 
-import ro.uaic.info.nlptools.tools.UaicMorphologicalDictionary;
-
 public class XMLFormatConfig implements ICorpusFormatConfig {
     public String sentenceNodeName;
     public String posAttributeName;

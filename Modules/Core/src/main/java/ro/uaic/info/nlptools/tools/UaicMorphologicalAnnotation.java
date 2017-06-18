@@ -16,11 +16,6 @@
 
 package ro.uaic.info.nlptools.tools;
 
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-
 public class UaicMorphologicalAnnotation {
 
     private String word;
@@ -31,7 +26,7 @@ public class UaicMorphologicalAnnotation {
     protected void setWord(String word){
         assert word!= null;
         assert !word.trim().isEmpty();
-        this.word = word;
+        this.word = UaicMorphologicalDictionary.getCanonicalWord(word);
     }
     
     public void setLemma(String lemma) {

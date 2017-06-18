@@ -22,9 +22,9 @@ import ro.uaic.info.nlptools.corpus.InmemoryCorpus;
 import ro.uaic.info.nlptools.corpus.InmemorySentence;
 import ro.uaic.info.nlptools.corpus.Token;
 import ro.uaic.info.nlptools.corpus.XMLFormatConfig;
+import ro.uaic.info.nlptools.tools.UaicTokenizer;
 import ro.uaic.info.nlptools.postagger.UaicHybridPOStagger;
 import ro.uaic.info.nlptools.tools.UaicMorphologicalDictionary;
-import ro.uaic.info.nlptools.tools.UaicTokenizer;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.io.*;

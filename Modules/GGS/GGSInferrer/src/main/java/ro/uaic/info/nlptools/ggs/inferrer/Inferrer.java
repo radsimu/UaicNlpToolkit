@@ -17,8 +17,8 @@
 package ro.uaic.info.nlptools.ggs.inferrer;
 
 import ro.uaic.info.nlptools.corpus.InmemoryCorpus;
-import ro.uaic.info.nlptools.ggs.engine.core.GenericGraphNode;
 import ro.uaic.info.nlptools.corpus.INlpSentence;
+import ro.uaic.info.nlptools.ggs.engine.core.GenericGraphNode;
 import ro.uaic.info.nlptools.corpus.SpanAnnotation;
 import ro.uaic.info.nlptools.corpus.Token;
 import ro.uaic.info.nlptools.ggs.engine.grammar.Grammar;

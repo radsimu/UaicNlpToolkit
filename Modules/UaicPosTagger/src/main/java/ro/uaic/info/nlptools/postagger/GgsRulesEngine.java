@@ -34,9 +34,9 @@ import ro.uaic.info.nlptools.ggs.engine.core.CompiledGrammar;
 import ro.uaic.info.nlptools.ggs.engine.core.GGSException;
 import ro.uaic.info.nlptools.ggs.engine.core.Match;
 import ro.uaic.info.nlptools.ggs.engine.grammar.Grammar;
+import ro.uaic.info.nlptools.tools.UaicMorphologicalAnnotation;
 import ro.uaic.info.nlptools.ggs.engine.grammar.Graph;
 import ro.uaic.info.nlptools.ggs.engine.grammar.GraphNode;
-import ro.uaic.info.nlptools.tools.UaicMorphologicalAnnotation;
 
 /**
  *

@@ -133,7 +133,7 @@
             <properties/>
             <border type="none"/>
             <children>
-              <nested-form id="e6b85" form-file="ro/uaic/info/nlptools/ggs/annotationsExplorer/AnnotationsExplorer.form" binding="annotationsExplorer">
+              <nested-form id="e6b85" form-file="ro/uaic/info/nlptools/annotationsExplorer/AnnotationsExplorer.form" binding="annotationsExplorer">
                 <constraints border-constraint="Center"/>
               </nested-form>
             </children>

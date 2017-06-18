@@ -16,15 +16,6 @@
 
 package ro.uaic.info.nlptools.tools;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
-import ro.uaic.info.nlptools.tools.TextParagraph;
-import ro.uaic.info.nlptools.tools.UaicMorphologicalAnnotation;
-
 class SentenceHunk {
 
     public TextParagraph parentParagraph;

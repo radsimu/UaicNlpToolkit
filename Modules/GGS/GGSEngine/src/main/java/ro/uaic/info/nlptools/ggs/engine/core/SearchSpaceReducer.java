@@ -17,10 +17,10 @@
 package ro.uaic.info.nlptools.ggs.engine.core;
 
 import ro.uaic.info.nlptools.corpus.InmemoryCorpus;
-import ro.uaic.info.nlptools.ggs.engine.SparseBitSet;
-import ro.uaic.info.nlptools.corpus.INlpCorpus;
 import ro.uaic.info.nlptools.corpus.INlpSentence;
 import ro.uaic.info.nlptools.corpus.IndexedLuceneCorpus;
+import ro.uaic.info.nlptools.ggs.engine.SparseBitSet;
+import ro.uaic.info.nlptools.corpus.INlpCorpus;
 import ro.uaic.info.nlptools.ggs.engine.grammar.GraphNode;
 import javafx.util.Pair;
 import org.apache.lucene.document.*;

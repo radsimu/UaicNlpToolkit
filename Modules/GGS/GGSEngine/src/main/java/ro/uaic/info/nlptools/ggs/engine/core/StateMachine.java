@@ -16,12 +16,12 @@
 
 package ro.uaic.info.nlptools.ggs.engine.core;
 
-import ro.uaic.info.nlptools.ggs.engine.SparseBitSet;
-import ro.uaic.info.nlptools.corpus.INlpCorpus;
 import ro.uaic.info.nlptools.corpus.INlpSentence;
 import ro.uaic.info.nlptools.corpus.SpanAnnotation;
-import ro.uaic.info.nlptools.corpus.Token;
+import ro.uaic.info.nlptools.ggs.engine.SparseBitSet;
 import ro.uaic.info.nlptools.ggs.engine.grammar.Grammar;
+import ro.uaic.info.nlptools.corpus.INlpCorpus;
+import ro.uaic.info.nlptools.corpus.Token;
 import ro.uaic.info.nlptools.ggs.engine.grammar.Graph;
 import ro.uaic.info.nlptools.ggs.engine.grammar.GraphNode;
 import org.apache.commons.lang3.StringEscapeUtils;
@@ -33,7 +33,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 class StateMachine {
     //public int startStateIndex = -1;

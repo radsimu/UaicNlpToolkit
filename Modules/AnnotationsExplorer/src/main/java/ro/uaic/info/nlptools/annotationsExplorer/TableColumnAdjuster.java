@@ -14,7 +14,7 @@
  * limitations under the License.
  *************************************************************************/
 
-package ro.uaic.info.nlptools.ggs.annotationsExplorer;
+package ro.uaic.info.nlptools.annotationsExplorer;
 
 import java.awt.*;
 import java.awt.event.*;

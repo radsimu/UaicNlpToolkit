@@ -24,7 +24,6 @@ import opennlp.tools.postag.POSModel;
 import opennlp.tools.postag.POSTaggerME;
 import opennlp.tools.util.BeamSearch;
 import opennlp.tools.util.SequenceValidator;
-import ro.uaic.info.nlptools.corpus.Token;
 import ro.uaic.info.nlptools.tools.UaicMorphologicalAnnotation;
 import ro.uaic.info.nlptools.tools.UaicMorphologicalDictionary;
 

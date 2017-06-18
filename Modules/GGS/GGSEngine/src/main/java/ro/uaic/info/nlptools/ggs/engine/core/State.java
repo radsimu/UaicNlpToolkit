@@ -17,8 +17,8 @@
 package ro.uaic.info.nlptools.ggs.engine.core;
 
 import ro.uaic.info.nlptools.corpus.SpanAnnotation;
-import ro.uaic.info.nlptools.ggs.engine.SparseBitSet;
 import ro.uaic.info.nlptools.corpus.INlpSentence;
+import ro.uaic.info.nlptools.ggs.engine.SparseBitSet;
 import ro.uaic.info.nlptools.ggs.engine.grammar.GraphNode;
 import javafx.util.Pair;
 
