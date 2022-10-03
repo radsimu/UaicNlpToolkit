@@ -1,9 +1,17 @@
-/build
+
 corola
-*.iws
-/.idea/workspace.xml
-/.idea/tasks.xml
 **/radu.txt
 TestData/*
 ResourceData/*
 !*/unzip_me_here.zip
+
+
+# Maven
+target/
+/build
+
+# IntelliJ project files
+*.iml
+*.iws
+*.ipr
+.idea/
