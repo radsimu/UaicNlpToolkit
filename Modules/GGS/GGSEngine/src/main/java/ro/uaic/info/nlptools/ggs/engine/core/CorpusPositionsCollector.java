@@ -16,6 +16,7 @@
 
 package ro.uaic.info.nlptools.ggs.engine.core;
 
+import org.apache.lucene.search.ScoreMode;
 import ro.uaic.info.nlptools.ggs.engine.SparseBitSet;
 import org.apache.lucene.index.LeafReaderContext;
 import org.apache.lucene.search.IndexSearcher;
@@ -44,11 +45,6 @@ public class CorpusPositionsCollector extends SimpleCollector {
     }
 
     @Override
-    public boolean needsScores() {
-        return false;
-    }
-
-    @Override
     public void collect(int i) throws IOException {
         result.set(i + docBase);
     }
@@ -56,6 +52,11 @@ public class CorpusPositionsCollector extends SimpleCollector {
     @Override
     protected void doSetNextReader(LeafReaderContext context) throws IOException {
         docBase = context.docBase;
+    }
+
+    @Override
+    public ScoreMode scoreMode() {
+        return ScoreMode.TOP_SCORES;
     }
 }
 

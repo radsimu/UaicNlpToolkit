@@ -16,12 +16,12 @@
 
 package ro.uaic.info.nlptools.ggs.engine.grammar;
 
-import javafx.util.Pair;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
+import ro.uaic.info.nlptools.ggs.engine.core.Pair;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;

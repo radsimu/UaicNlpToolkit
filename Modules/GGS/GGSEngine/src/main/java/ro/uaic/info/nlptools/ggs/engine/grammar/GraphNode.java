@@ -17,10 +17,10 @@
 package ro.uaic.info.nlptools.ggs.engine.grammar;
 
 import ro.uaic.info.nlptools.ggs.engine.core.GGSMacroNotFoundException;
-import javafx.util.Pair;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import ro.uaic.info.nlptools.ggs.engine.core.Pair;
 
 import java.util.ArrayList;
 import java.util.List;

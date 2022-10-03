@@ -50,7 +50,7 @@ public class POStrainer {
         try {
             model = train(sampleStream, dic, ModelType.MAXENT, 5, 100);
         } catch (IOException e) {
-            CmdLineUtil.printTrainingIoError(e);
+            System.err.println("IO error while reading training data or indexing data: " + e.getMessage());
             throw new TerminateToolException(-1);
         } finally {
             try {
@@ -101,14 +101,16 @@ public class POStrainer {
         } else {
             throw new IllegalStateException();
         }
-
-        return new POSModel("ro", posModel, null, null, manifestInfoEntries);
+        return new POSModel("ro", posModel, manifestInfoEntries,  null);
     }
 
     static ObjectStream<POSSample> openSampleData(String sampleDataName, File sampleDataFile, Charset encoding) {
         CmdLineUtil.checkInputFile(sampleDataName + " Data", sampleDataFile);
-        FileInputStream sampleDataIn = CmdLineUtil.openInFile(sampleDataFile);
-        ObjectStream<String> lineStream = new PlainTextByLineStream(sampleDataIn.getChannel(), encoding);
-        return new WordTagSampleStream(lineStream);
+        try(FileInputStream sampleDataIn = CmdLineUtil.openInFile(sampleDataFile)) {
+            ObjectStream<String> lineStream = new PlainTextByLineStream(sampleDataIn.getChannel(), encoding);
+            return new WordTagSampleStream(lineStream);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

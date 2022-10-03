@@ -16,10 +16,10 @@
 
 package ro.uaic.info.nlptools.ggs.editor;
 
+import ro.uaic.info.nlptools.ggs.engine.core.Pair;
 import ro.uaic.info.nlptools.ggs.engine.grammar.Grammar;
 import ro.uaic.info.nlptools.ggs.engine.grammar.Graph;
 import ro.uaic.info.nlptools.ggs.engine.grammar.GraphNode;
-import javafx.util.Pair;
 import jsyntaxpane.DefaultSyntaxKit;
 
 import javax.swing.*;
@@ -229,7 +229,6 @@ public class GrammarEditor {
         });
 
         macrosButtonToggle.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 if (splitPane1.getRightComponent().getWidth() > 0) {
                     splitPane1.getRightComponent().setMinimumSize(new Dimension());
@@ -243,7 +242,6 @@ public class GrammarEditor {
         });
 
         grammarJSEditorButtonToggle.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 if (splitPane2.getBottomComponent().getHeight() > 0) {
                     splitPane2.getBottomComponent().setMinimumSize(new Dimension());
@@ -260,7 +258,6 @@ public class GrammarEditor {
         grammarJSEditorButtonToggle.doClick();
 
         injectMacrosButton.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 for (int i = 0; i < grammar.macros.size(); i++)
                     for (Graph graph : grammar.getGraphs().values())
@@ -274,7 +271,6 @@ public class GrammarEditor {
 
         grammarJsEditor.setContentType("text/javascript");
         grammarJsEditor.getDocument().addDocumentListener(new DocumentListener() {
-            @Override
             public void insertUpdate(DocumentEvent e) {
                 try {
                     grammar.setJsCode(e.getDocument().getText(0, e.getDocument().getLength()));
@@ -283,12 +279,10 @@ public class GrammarEditor {
                 }
             }
 
-            @Override
             public void removeUpdate(DocumentEvent e) {
                 insertUpdate(e);
             }
 
-            @Override
             public void changedUpdate(DocumentEvent e) {
                 insertUpdate(e);
             }
@@ -326,7 +320,7 @@ public class GrammarEditor {
 
         graphTree.addTreeSelectionListener(new TreeSelectionListener() {
             public void valueChanged(TreeSelectionEvent e) {
-                if (e.getPath() != null && e.getPath().getLastPathComponent() != null) {//daca exista ceva selectat
+                if (e.getPath() != null && e.getPath().getLastPathComponent() != null) { //if there is anything selected
                     if (((DefaultMutableTreeNode) e.getPath().getLastPathComponent()).getUserObject() != null && ((DefaultMutableTreeNode) e.getPath().getLastPathComponent()).getUserObject() instanceof MyTreeNodeObject && ((MyTreeNodeObject) ((DefaultMutableTreeNode) e.getPath().getLastPathComponent()).getUserObject()).graph != null)
                         graphEditor.setCurrentGraph(((MyTreeNodeObject) ((DefaultMutableTreeNode) e.getPath().getLastPathComponent()).getUserObject()).graph);
                     graphTree.expandPath(e.getPath());
@@ -354,7 +348,7 @@ public class GrammarEditor {
                     if (val == null) return;
                     val = val.trim();
                     ok = true;
-                    if (val == null || val.isEmpty()) {
+                    if (val.isEmpty()) {
                         ok = false;
                         JOptionPane.showMessageDialog(frame, "The graph name cannot be empty", "Error", JOptionPane.ERROR_MESSAGE);
                     } else if (grammar.getGraphs().containsKey(val)) {
@@ -381,7 +375,7 @@ public class GrammarEditor {
                 DeleteGraphCommand deleteGraphCommand = new DeleteGraphCommand();
                 deleteGraphCommand.grammar = grammar;
                 deleteGraphCommand.graph = ((MyTreeNodeObject) ((DefaultMutableTreeNode) graphTree.getSelectionPath().getLastPathComponent()).getUserObject()).graph;
-                if (deleteGraphCommand.graph != null) { // daca e vorba despre un nod catre un graph existent (nu e red)
+                if (deleteGraphCommand.graph != null) { // if node points to existing graph (not red)
                     if (deleteGraphCommand.graph.getId().equals("Main")) {
                         Toolkit.getDefaultToolkit().beep();
                         return;
@@ -421,10 +415,10 @@ public class GrammarEditor {
         bar.add(menuRun);
 
         //File
-        JMenuItem neww = new JMenuItem("New");
-        neww.setAccelerator(KeyStroke.getKeyStroke('N', InputEvent.CTRL_DOWN_MASK));
-        neww.setMnemonic('N');
-        menuFile.add(neww);
+        JMenuItem newFile = new JMenuItem("New");
+        newFile.setAccelerator(KeyStroke.getKeyStroke('N', InputEvent.CTRL_DOWN_MASK));
+        newFile.setMnemonic('N');
+        menuFile.add(newFile);
 
         JMenuItem open = new JMenuItem("Open");
         open.setAccelerator(KeyStroke.getKeyStroke('O', InputEvent.CTRL_DOWN_MASK));
@@ -436,10 +430,10 @@ public class GrammarEditor {
         save.setMnemonic('S');
         menuFile.add(save);
 
-        final JMenuItem saveas = new JMenuItem("Save As");
-        saveas.setAccelerator(KeyStroke.getKeyStroke('S', InputEvent.CTRL_DOWN_MASK | InputEvent.SHIFT_DOWN_MASK));
-        saveas.setMnemonic('A');
-        menuFile.add(saveas);
+        final JMenuItem saveAs = new JMenuItem("Save As");
+        saveAs.setAccelerator(KeyStroke.getKeyStroke('S', InputEvent.CTRL_DOWN_MASK | InputEvent.SHIFT_DOWN_MASK));
+        saveAs.setMnemonic('A');
+        menuFile.add(saveAs);
 
         JMenuItem quit = new JMenuItem("Quit");
         quit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F4, InputEvent.ALT_DOWN_MASK));
@@ -550,7 +544,7 @@ public class GrammarEditor {
             }
         });
 
-        neww.addActionListener(new AbstractAction() {
+        newFile.addActionListener(new AbstractAction() {
             public void actionPerformed(ActionEvent e) {
                 if (shouldSave) {
                     int answer = JOptionPane.showConfirmDialog(frame, "Save before starting a new grammar?", null, JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
@@ -585,7 +579,7 @@ public class GrammarEditor {
         save.addActionListener(new AbstractAction() {
             public void actionPerformed(ActionEvent e) {
                 if (grammarFile == null) {
-                    saveas.doClick();
+                    saveAs.doClick();
                     return;
                 }
 
@@ -604,7 +598,7 @@ public class GrammarEditor {
             }
         });
 
-        saveas.addActionListener(new AbstractAction() {
+        saveAs.addActionListener(new AbstractAction() {
             public void actionPerformed(ActionEvent e) {
                 int ret = fileDialog.showSaveDialog(frame);
                 if (ret == JFileChooser.APPROVE_OPTION) {
@@ -695,7 +689,6 @@ public class GrammarEditor {
         tableModel.addRow(new Object[]{"", "", "+"});
 
         ButtonColumn b = new ButtonColumn(macrosTable, new AbstractAction() {
-            @Override
             public void actionPerformed(ActionEvent e) {
                 JTable table = (JTable) e.getSource();
                 int modelRow = Integer.valueOf(e.getActionCommand());
@@ -716,7 +709,6 @@ public class GrammarEditor {
         }, 2);
 
         tableModel.addTableModelListener(new TableModelListener() {
-            @Override
             public void tableChanged(TableModelEvent tableModelEvent) {
                 if (tableModelEvent.getColumn() == 2 || tableModelEvent.getColumn() == -1)
                     return;
@@ -817,7 +809,7 @@ public class GrammarEditor {
 
         DefaultMutableTreeNode root = new DefaultMutableTreeNode();
         TreeModel model = new MyTreeModel(root, this);
-        Set<String> graphNames = new HashSet<String>(grammar.getGraphs().keySet());  //aici o sa ramana toate grafurile care nu sunt legate de Main, ca sa le afisez si pe ele
+        Set<String> graphNames = new HashSet<String>(grammar.getGraphs().keySet());  //all graphs that are not linked to Main
 
         addGraph("Main", root, graphNames);
 
@@ -829,7 +821,7 @@ public class GrammarEditor {
         //preserve expanded paths
         recoverGraphTreeExpandedState(rowsPaths);
 
-        //incerc sa fac selectia ca inainte
+        //try to do selection as before
         if (oldSelectionPath != null && oldSelectionPath.getPathCount() > 1) {
             TreePath newSel = getTreePathAfterRefresh(oldSelectionPath);
             graphTree.setSelectionPath(newSel);
@@ -843,7 +835,7 @@ public class GrammarEditor {
         for (int i = 1; i < oldTreePath.getPathCount(); i++) {
             DefaultMutableTreeNode lastPathNode = (DefaultMutableTreeNode) newTreePath.getLastPathComponent();
 
-            //ma uit sa vad daca nodul urmator din selectia veche este copil in ierarhia noua
+            //check if the next node from the old selection is a child in the new hierarchy
 
             DefaultMutableTreeNode found = null;
             for (int j = 0; j < lastPathNode.getChildCount(); j++) {
@@ -883,7 +875,7 @@ public class GrammarEditor {
         parentNode.add(newNode);
 
         if (isRecursive(g, parentNode)) {
-            nodeObject.isRecursive = true; //asta il va face sa fie randat in albastru, iar copiii nu vor mai fi adaugati
+            nodeObject.isRecursive = true; //this will get it to render in blue, and children won't be added
             return;
         }
 
@@ -915,21 +907,21 @@ public class GrammarEditor {
     }
 
     public void selectChildGraph(String name) {
-        DefaultMutableTreeNode curent = ((DefaultMutableTreeNode) graphTree.getSelectionPath().getLastPathComponent());
-        if (curent.getChildCount() == 0) {
-            for (TreeNode iter : curent.getPath()) {
-                if (iter.toString() == null) continue;
-                if (iter.toString().equals(curent.toString())) {
-                    curent = (DefaultMutableTreeNode) iter;
+        DefaultMutableTreeNode current = ((DefaultMutableTreeNode) graphTree.getSelectionPath().getLastPathComponent());
+        if (current.getChildCount() == 0) {
+            for (TreeNode treeNode : current.getPath()) {
+                if (treeNode.toString() == null) continue;
+                if (treeNode.toString().equals(current.toString())) {
+                    current = (DefaultMutableTreeNode) treeNode;
                     break;
                 }
             }
         }
 
-        for (int i = 0; i < curent.getChildCount(); i++) {
-            DefaultMutableTreeNode iter = (DefaultMutableTreeNode) curent.getChildAt(i);
-            if (iter.toString().equals(name)) {
-                graphTree.setSelectionPath(new TreePath(curent.getPath()).pathByAddingChild(iter));
+        for (int i = 0; i < current.getChildCount(); i++) {
+            DefaultMutableTreeNode treeNode = (DefaultMutableTreeNode) current.getChildAt(i);
+            if (treeNode.toString().equals(name)) {
+                graphTree.setSelectionPath(new TreePath(current.getPath()).pathByAddingChild(treeNode));
                 return;
             }
         }
@@ -941,14 +933,14 @@ public class GrammarEditor {
         selectGraph((DefaultMutableTreeNode) graphTree.getModel().getRoot(), graph);
     }
 
-    private boolean selectGraph(DefaultMutableTreeNode curent, Graph graph) {
-        if (curent.getUserObject() != null && ((MyTreeNodeObject) curent.getUserObject()).graph == graph) {
-            graphTree.setSelectionPath(new TreePath(curent.getPath()));
+    private boolean selectGraph(DefaultMutableTreeNode current, Graph graph) {
+        if (current.getUserObject() != null && ((MyTreeNodeObject) current.getUserObject()).graph == graph) {
+            graphTree.setSelectionPath(new TreePath(current.getPath()));
             return true;
         }
-        for (int i = 0; i < curent.getChildCount(); i++) {
-            DefaultMutableTreeNode iter = (DefaultMutableTreeNode) curent.getChildAt(i);
-            if (selectGraph(iter, graph))
+        for (int i = 0; i < current.getChildCount(); i++) {
+            DefaultMutableTreeNode treeNode = (DefaultMutableTreeNode) current.getChildAt(i);
+            if (selectGraph(treeNode, graph))
                 return true;
         }
         return false;

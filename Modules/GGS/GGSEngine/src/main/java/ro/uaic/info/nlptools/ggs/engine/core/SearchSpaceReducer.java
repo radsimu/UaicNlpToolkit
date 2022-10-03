@@ -22,7 +22,6 @@ import ro.uaic.info.nlptools.corpus.IndexedLuceneCorpus;
 import ro.uaic.info.nlptools.ggs.engine.SparseBitSet;
 import ro.uaic.info.nlptools.corpus.INlpCorpus;
 import ro.uaic.info.nlptools.ggs.engine.grammar.GraphNode;
-import javafx.util.Pair;
 import org.apache.lucene.document.*;
 import org.apache.lucene.index.*;
 import org.apache.lucene.search.*;

@@ -16,8 +16,8 @@
 
 package ro.uaic.info.nlptools.ggs.engine.core;
 
-import javafx.util.Pair;
 import org.apache.lucene.search.IndexSearcher;
+import org.apache.lucene.search.ScoreMode;
 import org.apache.lucene.search.SimpleCollector;
 
 import java.io.IOException;
@@ -33,14 +33,14 @@ public class CorpusPositionsAnnotationsCollector extends SimpleCollector {
     }
 
     @Override
-    public boolean needsScores() {
-        return false;
-    }
-
-    @Override
     public void collect(int i) throws IOException {
         result.getKey().set(Integer.parseInt(searcher.doc(i).get("GGS:StartTokenIndex")));
         result.getValue().set(Integer.parseInt(searcher.doc(i).get("GGS:EndTokenIndex")));
+    }
+
+    @Override
+    public ScoreMode scoreMode() {
+        return null;
     }
 }
 
